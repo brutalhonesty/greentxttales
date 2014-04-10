@@ -1,0 +1,5 @@
+<div class="jumbotron" id="storyContainer" ng-repeat="tale in greenTales" ng-show="greenTales" jumbo="">
+	<a ng-href="{{tale.image}}" id="greenTxtLink">{{tale.image}}</a>	<div id="greenTxtContainer">
+		<p ng-repeat="line in tale.text track by $index" greens="" ng-bind="line"></p>
+	</div>
+</div>
