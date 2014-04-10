@@ -1,0 +1,40 @@
+<h1 id="title">>Green Txt Tales<sup>Beta</sup></h1>
+<div id="sfwToggleContainer" ng-show="verified">
+<div class="checkbox">
+  <input type="checkbox" id="sfwToggle" ng-model="sfw">
+  <label for="sfwToggle"></label>
+</div>
+<label>SFW Enabled</label>
+</div>
+<div class="container verify-age" ng-show="!verified">
+  <h4 id="verifyError" ng-show="showVerifyError">You must agree to view the content on this site.</h4>
+  <h3>To access this section of the website, you must agree to the following</h3>
+  <p>I understand the content of this website is for mature audiences only and may not be suitable for minors. </p><p>If I am a minor or it is illegal for me to access mature images and language, I will not proceed.</p>
+  <p>This site is presented to you AS IS, with no warranty, express or implied. </p><p>By clicking "I Agree," you agree not to hold GreenTxtTales responsible for any damages from your use of the site</p>
+  <div id="checkboxContainer">
+    <div class="checkbox">
+      <input type="checkbox" id="sfw" ng-model="sfw" />
+      <label for="sfw"></label>
+  </div>
+  <label>Yes! I want a safe for work mode enabled. <i class="fa fa-question-circle" rel="tooltip" tooltip></i></label>
+  </div>
+  <div id="checkboxContainer">
+    <div class="checkbox">
+      <input type="checkbox" id="over-eighteen" ng-model="overEighteen" />
+      <label for="over-eighteen"></label>
+    </div>
+    <label>I agree!</label>
+  </div>
+  <button type="submit" ng-click="submitVerification()" id="submitVerification">Submit</button>
+</div>
+<div ng-show="verified">
+  <div class="jumbotron" id="errorTxtContainer" ng-if="error" error></div>
+  <div id="loading" ng-if="!error && !greenTales">
+    <center>
+      <img src="images/loading.gif">
+    </center>
+  </div>
+  <div ng-include='storyTemplate'>
+  </div>
+  <button ng-disabled="noMoreStories" ng-click="moreStories()" id="moreStories"><div ng-if="noMoreStories">No More Stories</div><div ng-if="!noMoreStories">Load More Stories</div></button>
+</div>
