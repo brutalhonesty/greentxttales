@@ -1,6 +1,8 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$icon-font-path: "/bower_components/bootstrap/vendor/assets/fonts/bootstrap/";
 
-@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+/*UI Bootstrap CSS Changes*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 
 body {
     background-image: url('../images/background.png');

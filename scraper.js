@@ -136,19 +136,30 @@ setInterval(function () {
       console.log(error);
       return;
     }
-    //console.log('Source data: ');
+    ///console.log('Source data: ');
     //console.log(stories);
     if(stories.length > 0) {
       // Store to CouchDB
       for(var stryCtr = 0; stryCtr < stories.length; stryCtr++) {
-        // TODO This post id is not being registered as already added so we are adding additional of the same story.
-        storiesDB.insert(stories[stryCtr], stories[stryCtr].id, function (err) {
-          if(err) {
-            console.log(err);
-            // We return because if the insertion failed once, it's gonna fail on the rest.
-            return;
-          }
-        });
+        (function(stryCtr) {
+          storiesDB.view('stories', 'by_id', {reduce: false, startkey: stories[stryCtr].id, endkey: stories[stryCtr].id + '\u9999'}, function (error, reply) {
+            if(error) {
+              console.log(err);
+              // We return because if the insertion failed once, it's gonna fail on the rest.
+              return;
+            }
+            // TODO We might want to update a story if it continues into more than one post so different checks will be made.
+            if(reply.rows.length === 0) {
+              storiesDB.insert(stories[stryCtr], {doc_name: stories[stryCtr].id}, function (err) {
+                if(err) {
+                  console.log(err);
+                  // We return because if the insertion failed once, it's gonna fail on the rest.
+                  return;
+                }
+              });
+            }
+          });
+        })(stryCtr);
       }
     }
   });

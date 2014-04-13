@@ -1,5 +1,5 @@
 'use strict';
-var greenTextApp = angular.module('greenTextApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute']);
+var greenTextApp = angular.module('greenTextApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.bootstrap']);
 greenTextApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {

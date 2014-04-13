@@ -2,4 +2,4 @@
 
 ## scraper.js
 
-* **TODO** `(line 144)`  This post id is not being registered as already added so we are adding additional of the same story.
+* **TODO** `(line 150)`  We might want to update a story if it continues into more than one post so different checks will be made.

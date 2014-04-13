@@ -81,7 +81,6 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
           '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
-      
         options: {
           livereload: true
         }
@@ -190,7 +189,7 @@ module.exports = function (grunt) {
             nodemon.on('config:update', function () {
               setTimeout(function () {
                 require('open')('http://localhost:8080/debug?port=5858');
-              }, 500);              
+              }, 500);
             });
           }
         }
@@ -201,8 +200,7 @@ module.exports = function (grunt) {
     'bower-install': {
       app: {
         html: '<%= yeoman.app %>/views/index.html',
-        ignorePath: '<%= yeoman.app %>/',
-        exclude: ['bootstrap-sass']
+        ignorePath: '<%= yeoman.app %>/'
       }
     },
 
@@ -365,7 +363,9 @@ module.exports = function (grunt) {
           src: [
             'package.json',
             'server.js',
-            'lib/**/*'
+            'lib/**/*',
+            'db/**/*',
+            'scraper.js'
           ]
         }]
       },

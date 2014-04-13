@@ -26,15 +26,3 @@ greenTextApp.directive('greens', function () {
 		}
 	};
 });
-greenTextApp.directive('tooltip', function() {
-	return {
-		restrict: 'A',
-		link: function($scope, element) {
-			element.tooltip({
-				placement: 'top',
-				title: 'All images will be replaced with clickable links.',
-				trigger: 'click hover'
-			});
-		}
-	};
-});
