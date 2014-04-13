@@ -1,5 +1,6 @@
 /* global greenTextApp */
 'use strict';
+// TODO Client-side breaks in production. $digest is called too many times.
 greenTextApp.controller('MainCtrl', ['$scope', 'API', '$store', '$sce', '$location', function ($scope, api, $store, $sce, $location) {
   var over18 = JSON.parse($store.get('OVER18'));
   if(over18 !== null) {
